@@ -2,7 +2,7 @@
     <h1>List Buku</h1>
     <table class="table table-bordered">
         <thead>
-            <tr>
+            <tr class="text-center">
                 <th>Row</th>
                 <th>Judul Buku</th>
                 <th>Tahun Terbit</th>
