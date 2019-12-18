@@ -41,7 +41,7 @@
                 <a href="<?php echo base_url() ?>admin" class="list-group-item list-group-item-action bg-dark text-white">
                     <span class="menu-collapsed">Data buku</span>
                 </a>
-                <a href="<?php echo base_url() ?>admin/addBook" class="list-group-item list-group-item-action bg-dark text-white">
+                <a href="<?php echo base_url() ?>admin/addNewBook" class="list-group-item list-group-item-action bg-dark text-white">
                     <span class="menu-collapsed">Tambah buku</span>
                 </a>
             </div>
