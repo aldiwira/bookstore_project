@@ -13,7 +13,8 @@ class user_handling_model extends CI_Model
     {
         parent::__construct();
         $this->_client = new Client([
-            'base_uri' => 'http://localhost/bookstore_project/api/'
+            'base_uri' => 'http://localhost/bookstore_project/api/',
+            'http_errors' => false
         ]);
     }
     public function getAllUserData()

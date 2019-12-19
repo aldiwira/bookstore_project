@@ -1,5 +1,10 @@
 <div>
     <h1>List Buku</h1>
+    <?php if (empty($book)) { ?>
+        <div class="alert alert-danger" role="alert">
+            Data tidak ditemukan
+        </div>
+    <?php } ?>
     <table class="table table-bordered">
         <thead>
             <tr class="text-center">
@@ -14,21 +19,23 @@
         <tbody>
             <?php
             $num = 1;
-            foreach ($book as $bk) { ?>
-                <tr>
-                    <td><?php echo $num ?></td>
-                    <td><?php echo $bk['judul'] ?></td>
-                    <td><?php echo $bk['tahun_terbit'] ?></td>
-                    <td><?php echo $bk['penulis'] ?></td>
-                    <td>Rp. <?php echo number_format($bk['harga'], 2) ?></td>
-                    <td class="d-flex justify-content-center">
-                        <a href="<?= base_url(); ?>admin/delete_book/<?= $bk['id'] ?>" class="badge badge-danger float-right tombol-hapus">hapus</a>
-                        <a href="<?= base_url(); ?>admin/ubahdata/<?= $bk['id'] ?>" class="badge badge-success float-right">ubah</a>
-                        <a href="<?= base_url(); ?>admin/detailbuku/<?= $bk['id'] ?>" class="badge badge-primary float-right">detail</a>
-                    </td>
-                    <?php $num++; ?>
-                </tr>
+            if ($book > 0) {
+                foreach ($book as $bk) { ?>
+                    <tr>
+                        <td><?php echo $num ?></td>
+                        <td><?php echo $bk['judul'] ?></td>
+                        <td><?php echo $bk['tahun_terbit'] ?></td>
+                        <td><?php echo $bk['penulis'] ?></td>
+                        <td>Rp. <?php echo number_format($bk['harga'], 2) ?></td>
+                        <td class="d-flex justify-content-center">
+                            <a href="<?= base_url(); ?>admin/delete_book/<?= $bk['id'] ?>" class="badge badge-danger float-right tombol-hapus">hapus</a>
+                            <a href="<?= base_url(); ?>admin/ubahdata/<?= $bk['id'] ?>" class="badge badge-success float-right">ubah</a>
+                            <a href="<?= base_url(); ?>admin/detailbuku/<?= $bk['id'] ?>" class="badge badge-primary float-right">detail</a>
+                        </td>
+                        <?php $num++; ?>
+                    </tr>
 
+                <?php } ?>
             <?php } ?>
         </tbody>
     </table>

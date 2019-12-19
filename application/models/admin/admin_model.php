@@ -12,7 +12,8 @@ class admin_model extends CI_Model
     public function __construct()
     {
         $this->_client = new Client([
-            'base_uri' => 'http://localhost/bookstore_project/api/'
+            'base_uri' => 'http://localhost/bookstore_project/api/',
+            'http_errors' => false
         ]);
     }
     private function _uploadImage($nama)

@@ -4,7 +4,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class user_model extends CI_Model
 {
-
+    //login function
     public function login($username, $password)
     {
         $this->db->select('username, password, level');

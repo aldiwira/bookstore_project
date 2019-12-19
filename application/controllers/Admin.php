@@ -11,6 +11,9 @@ class Admin extends CI_Controller
         $this->load->model('admin/admin_model', 'admin');
         $this->load->library('form_validation');
         $this->load->library('session');
+        if ($this->session->userdata('level') != "admin") {
+            redirect('login', 'refresh');
+        }
     }
 
     private function showAdminTemplate($data)

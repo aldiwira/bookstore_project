@@ -1,20 +1,3 @@
-$(document).ready(function() {
-	$("#btnLogin").on("click", function() {
-		login_now();
-	});
+$(".message a").click(function() {
+	$("form").animate({ height: "toggle", opacity: "toggle" }, "slow");
 });
-
-function login_now() {
-	$.ajax({
-		url: "http://localhost/rest-api-server/api/anggota",
-		type: "GET",
-		dataType: "json",
-		data: {
-			username: $("#usernameField").val(),
-			password: $("#passwordField").val()
-		},
-		success: function(data) {
-			console.log(data);
-		}
-	});
-}

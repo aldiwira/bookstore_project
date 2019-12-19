@@ -61,12 +61,8 @@
                 </a>
 
             </div>
-            <a href="#submenu2" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
-                <div class="d-flex w-100 justify-content-start align-items-center">
-                    <span class="fa fa-user fa-fw mr-3"></span>
-                    <span class="menu-collapsed">Log Out</span>
-                    <span class="submenu-icon ml-auto"></span>
-                </div>
+            <a href="<?php echo base_url() ?>login/logout" class="list-group-item list-group-item-action bg-dark text-white">
+                <span class="menu-collapsed">Log Out</span>
             </a>
 
         </ul>
