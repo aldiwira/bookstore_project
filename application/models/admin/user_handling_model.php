@@ -13,13 +13,17 @@ class user_handling_model extends CI_Model
     {
         parent::__construct();
         $this->_client = new Client([
-            'base_uri' => 'http://localhost/bookstore_project/api/',
+            'base_uri' => 'http://localhost/bookstore_project_server/api/',
             'http_errors' => false
         ]);
     }
     public function getAllUserData()
     {
-        $respose = $this->_client->request('GET', 'user_handling');
+        $respose = $this->_client->request('GET', 'user_handling', [
+            'query' => [
+                'AUTH-KEY' => '63f9ebbd-4aee-4ba9-870b-0eae47f98103'
+            ]
+        ]);
         $result = json_decode($respose->getBody()->getContents(), true);
         return $result['data'];
     }
@@ -27,7 +31,8 @@ class user_handling_model extends CI_Model
     {
         $respose = $this->_client->request('GET', 'user_handling', [
             'query' => [
-                'id' => $id
+                'id' => $id,
+                'AUTH-KEY' => '63f9ebbd-4aee-4ba9-870b-0eae47f98103'
             ]
         ]);
         $result = json_decode($respose->getBody()->getContents(), true);
@@ -37,7 +42,8 @@ class user_handling_model extends CI_Model
     {
         $respone = $this->_client->request('DELETE', 'user_handling', [
             'form_params' => [
-                'id' => $id
+                'id' => $id,
+                'AUTH-KEY' => '63f9ebbd-4aee-4ba9-870b-0eae47f98103'
             ]
         ]);
         $result = json_decode($respone->getBody()->getContents(), true);
@@ -51,6 +57,9 @@ class user_handling_model extends CI_Model
             'level' => $this->input->post('level')
         ];
         $respone = $this->_client->request('POST', 'user_handling', [
+            'query' => [
+                'AUTH-KEY' => '63f9ebbd-4aee-4ba9-870b-0eae47f98103'
+            ],
             'form_params' => $data
         ]);
         $result = json_decode($respone->getBody()->getContents(), true);
@@ -65,6 +74,9 @@ class user_handling_model extends CI_Model
             'level' => $this->input->post('level')
         ];
         $respone = $this->_client->request('PUT', 'user_handling', [
+            'query' => [
+                'AUTH-KEY' => '63f9ebbd-4aee-4ba9-870b-0eae47f98103'
+            ],
             'form_params' => $data
         ]);
         $result = json_decode($respone->getBody()->getContents(), true);

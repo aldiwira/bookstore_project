@@ -30,6 +30,8 @@ class login extends CI_Controller
             $this->session->set_userdata('level', $cek['level']);
             if ($this->session->userdata('level') == "admin") {
                 redirect('admin');
+            } else if ($this->session->userdata('level') == "user") {
+                redirect('home');
             } else {
                 $data['pesan'] = "username dan password anda salah";
                 redirect('login');
@@ -52,7 +54,7 @@ class login extends CI_Controller
     public function logout()
     {
         $this->session->sess_destroy();
-        redirect('login', 'refresh');
+        redirect('home', 'refresh');
     }
 }
     

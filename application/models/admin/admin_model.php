@@ -12,8 +12,7 @@ class admin_model extends CI_Model
     public function __construct()
     {
         $this->_client = new Client([
-            'base_uri' => 'http://localhost/bookstore_project/api/',
-            'http_errors' => false
+            'base_uri' => 'http://localhost/bookstore_project_server/api/'
         ]);
     }
     private function _uploadImage($nama)
@@ -48,7 +47,11 @@ class admin_model extends CI_Model
 
     public function getAllBook()
     {
-        $respose = $this->_client->request('GET', 'book');
+        $respose = $this->_client->request('GET', 'book', [
+            'query' => [
+                'AUTH-KEY' => 'ea6185df-b1af-4b1a-b1db-f83470297173'
+            ]
+        ]);
         $result = json_decode($respose->getBody()->getContents(), true);
         return $result['data'];
     }
@@ -56,6 +59,7 @@ class admin_model extends CI_Model
     {
         $respone = $this->_client->request('GET', 'book', [
             'query' => [
+                'AUTH-KEY' => 'ea6185df-b1af-4b1a-b1db-f83470297173',
                 'id' => $id
             ]
         ]);
@@ -67,7 +71,8 @@ class admin_model extends CI_Model
         $this->_deleteImage($id);
         $respone = $this->_client->request('DELETE', 'book', [
             'form_params' => [
-                'id' => $id
+                'id' => $id,
+                'AUTH-KEY' => 'ea6185df-b1af-4b1a-b1db-f83470297173'
             ]
         ]);
         $result = json_decode($respone->getBody()->getContents(), true);
@@ -81,7 +86,8 @@ class admin_model extends CI_Model
             'penulis' => $this->input->post('penulis'),
             'deskripsi' => $this->input->post('deskripsi'),
             'harga' => $this->input->post('harga'),
-            'gambar' => $this->_uploadImage($this->input->post('judul'))
+            'gambar' => $this->_uploadImage($this->input->post('judul')),
+            'AUTH-KEY' => 'ea6185df-b1af-4b1a-b1db-f83470297173'
         ];
         $respone = $this->_client->request('POST', 'book', [
             'form_params' => $data
@@ -103,7 +109,8 @@ class admin_model extends CI_Model
             'penulis' => $this->input->post('penulis'),
             'deskripsi' => $this->input->post('deskripsi'),
             'harga' => $this->input->post('harga'),
-            'gambar' => $imgae
+            'gambar' => $imgae,
+            'AUTH-KEY' => 'ea6185df-b1af-4b1a-b1db-f83470297173'
         ];
         $respone = $this->_client->request('PUT', 'book', [
             'form_params' => $data

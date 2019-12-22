@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="<?= base_url() ?>assets/css/home.css">
     <link rel="stylesheet" href="<?= base_url() ?>assets/css/sidebar.css">
     <link rel="stylesheet" href="<?= base_url() ?>assets/css/admin_home.css">
+    <link rel="stylesheet" href="<?= base_url() ?>assets/css/homepage.css" />
+    <link rel="stylesheet" href="<?= base_url() ?>assets/css/homepage1.css" />
     <script src="<?= base_url() ?>assets/js/jquery/jquery-3.4.1.js"></script>
     <script src="<?= base_url() ?>assets/js/jquery/jquery-3.4.1.min.js"></script>
     <script src="<?= base_url() ?>assets/js/login.js"></script>
@@ -18,4 +20,4 @@
     <title><?php echo $title ?></title>
 </head>
 
-<body>
+<body class="hero-anime">

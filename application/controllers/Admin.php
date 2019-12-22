@@ -12,7 +12,7 @@ class Admin extends CI_Controller
         $this->load->library('form_validation');
         $this->load->library('session');
         if ($this->session->userdata('level') != "admin") {
-            redirect('login', 'refresh');
+            redirect('home', 'refresh');
         }
     }
 
