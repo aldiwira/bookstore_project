@@ -28,6 +28,7 @@ class login extends CI_Controller
             $cek = $this->login->Login_Auth();
             $this->session->set_userdata('user', $cek['username']);
             $this->session->set_userdata('level', $cek['level']);
+            $this->session->set_userdata('id', $cek['id']);
             if ($this->session->userdata('level') == "admin") {
                 redirect('admin');
             } else if ($this->session->userdata('level') == "user") {

@@ -46,10 +46,10 @@
                                     </li>
                                 <?php } else { ?>
                                     <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-                                        <a class="nav-link color-black" href="<?= base_url() ?>login/logout">Notifikasi <span class="badge badge-light">1</span></a>
+                                        <a class="nav-link color-black" href="<?= base_url() ?>home/pesanan">Pesanan <span class="badge badge-light"><?= count($pesanan) ?></span></a>
                                     </li>
                                     <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-                                        <a class="nav-link color-black" href="<?= base_url() ?>login/logout">Pesanan <span class="badge badge-light">1</span></a>
+                                        <a class="nav-link color-black" href="<?= base_url() ?>home/cart">Cart <span class="badge badge-light"><?= $this->cart->total_items(); ?></span></a>
                                     </li>
                                     <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
                                         <a class="nav-link color-red" href="<?= base_url() ?>login/logout">Logout</a>
